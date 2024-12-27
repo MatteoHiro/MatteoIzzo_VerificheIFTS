@@ -1,0 +1,548 @@
+body {
+  margin: 0;
+  font-family: "PT Sans", sans-serif;
+}
+
+
+:root {
+  --boldFont: bold;
+  --hoverColorMain: rgba(1, 171, 222, 255);
+  --mainBGcolor: rgba(247, 247, 247, 0.537);
+  --mainBGimage: url(../src/assets/IMG/paper-bags-different-colors-blue-background-top-view_169016-43755.jpg);
+  --cardGradient: linear-gradient(180deg, rgb(238, 240, 241) 50%, rgba(242, 242, 242, 0.788) 90%);
+  --mainBorderRadius: 15px;
+  --h1Color: rgba(3, 3, 3, 0.850);
+}
+
+/*navbar*/
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+}
+
+.menuMobileContainer {
+  display: none;
+}
+
+.navbarContainer h2 {
+  font-weight: var(--boldFont);
+  font-size: 40px;
+  margin: 0;
+}
+
+.navActions {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.navActions li {
+  margin: 0 100px;
+  font-size: 20px;
+  font-weight: var(--boldFont);
+}
+
+.navActions li a,
+.navActionsMobile li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navActions li a:hover {
+  color: var(--hoverColorMain);
+}
+
+/**/
+
+/* background*/
+.bgContainer,
+.bgContainerContact {
+  position: relative;
+}
+
+.bgContainer::before,
+.bgContainerContact::before {
+  content: "";
+  background-image: var(--mainBGimage);
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/**/
+
+/*stile filtro categoria*/
+.category-container,
+.nameFilter-container {
+  width: 100%;
+  min-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.category-select {
+  padding: 10px;
+  border-radius: 100px;
+  width: 100%;
+}
+
+.nameFilter-select {
+  padding: 10px;
+  border-radius: 100px;
+}
+
+
+
+/**/
+
+/*visualizzazione dei prodotti nella home page*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 colonne */
+  gap: 20px;
+  /* Margini intorno alla griglia */
+  padding: 20px;
+}
+
+.product.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 15px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  background: var(--cardGradient);
+}
+
+.product.card:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
+.product.card img {
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.descriptionContainer {
+  text-align: left;
+}
+
+.product-grid .card {
+  cursor: pointer;
+}
+
+/**/
+
+/*card di dettagli prodotto*/
+.Detailsmodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Detailsmodal-content {
+  background: white;
+  padding: 20px;
+  border-radius: var(--mainBorderRadius);
+  width: 1000px;
+  height: 70%;
+  overflow-y: scroll;
+  background: var(--cardGradient);
+}
+
+.Detailsmodal-content::-webkit-scrollbar {
+  width: 12px;
+  border-radius: var(--mainBorderRadius);
+}
+
+.Detailsmodal-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.Detailsmodal-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #F5F5F5;
+}
+
+.Detailsmodal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.Detailsmodal-content h1 {
+  padding-bottom: 10px;
+  padding-top: 50px;
+  margin: 0;
+  font-size: 70px;
+  color: var(--h1Color);
+}
+
+.Detailsmodal-content .brand {
+  padding-bottom: 90px;
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailsLogo {
+  font-weight: var(--boldFont);
+  font-size: 30px;
+}
+
+.detailsHeader .closeButton {
+  background: var(--hoverColorMain);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Detailsmodal-content .closeButton:hover {
+  background: red;
+}
+
+.descriptionDetailsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-width: 500px;
+}
+
+.detailsDescription {
+  margin: 0;
+}
+
+.textDetail {
+  margin: 15px;
+  text-align: left;
+  width: 50%;
+}
+
+.extraInfo {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--mainBGcolor);
+}
+
+.textDetail .detailsDescription {
+  font-size: 30px;
+  padding-bottom: 10px;
+  font-weight: var(--boldFont);
+}
+
+.textDetail p {
+  font-size: 15px;
+}
+
+.Detailsmodal-content img {
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 50%;
+  background-color: whitesmoke;
+}
+
+.buyAndRegisterContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.buyAndRegister {
+  border-radius: 8px;
+  padding: 5px;
+  font-weight: var(--boldFont);
+  background: var(--mainBGcolor);
+  cursor: pointer;
+  width: 50%;
+}
+
+.buyAndRegister:hover {
+  color: var(--hoverColorMain);
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
+.commentHeader {
+  text-align: left;
+  padding-top: 50px;
+}
+
+.commentSection {
+  text-align: left;
+  padding: 5px;
+  width: 40%;
+}
+
+.userName:hover {
+  color: var(--hoverColorMain);
+  cursor: pointer;
+}
+
+.stars {
+  color: gold;
+  font-size: 1.5em;
+}
+
+.empty-stars {
+  color: #ccc;
+}
+
+.comments {
+  border: 1px solid black;
+  background: var(--mainBGcolor);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px;
+}
+
+/**/
+
+/*form della pagina di contatto*/
+.bgContainerContact {
+  background-image: var(--mainBGimage);
+  background-size: cover;
+  /* Ridimensionamento dell'immagine */
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*header del form con animazione*/
+.formHeader {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  position: relative;
+  margin: 0;
+}
+
+.titleHeader {
+  margin: 0;
+  color: var(--h1Color);
+}
+
+.openFormButton {
+  padding: 10px;
+  width: 50%;
+  background: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.closeFormButton {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: var(--hoverColorMain);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.closeFormButton:hover {
+  background: red;
+}
+
+/**/
+
+.formContainer {
+  width: 30%;
+  border: 1px solid black;
+  border-radius: var(--mainBorderRadius);
+  padding: 60px;
+  background: var(--mainBGcolor);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+
+.contact-form .error {
+  color: red;
+  margin: 5px;
+}
+
+.formContainer div {
+  width: 100%;
+  margin: 10px;
+}
+
+.formContainer div label {
+  font-weight: var(--boldFont);
+}
+
+.formContainer input,
+.formContainer textarea,
+#education {
+  width: 100%;
+  padding: 5px;
+}
+
+.contact-form .buttonContainer {
+  text-align: center;
+  margin: 5px;
+  padding-top: 10px;
+}
+
+.formButton {
+  padding: 10px;
+  width: 50%;
+  background: var(--mainBGcolor);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formButton:hover {
+  background: white;
+}
+
+/**/
+
+/*media queries*/
+@media (max-width: 1400px) {
+
+  /*MEDIA QUERIES HOME PAGE*/
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 colonne per schermi piccoli */
+  }
+
+  /**/
+
+  /*MEDIA QUERIES PAGINA CONTATTI*/
+  .formContainer {
+    width: 50%;
+  }
+
+  .openFormButton {
+    width: 30%;
+  }
+
+  /**/
+}
+
+@media (max-width: 800px) {
+
+  /*MEDIA QUERIES NAVBAR*/
+  .navbarContainer {
+    display: none;
+  }
+
+  .menuMobileContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: left;
+    padding-bottom: 10px;
+    background: white;
+    margin: 0 0 10px 0;
+    width: 100%;
+    min-width: 700px;
+  }
+
+  .hamburger {
+    font-weight: var(--boldFont);
+    padding: 5px;
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .navActionsMobile {
+    list-style: none;
+    padding: 5px;
+    background: white;
+    width: 20%;
+  }
+
+  .navActionsMobile li {
+    margin: 5px;
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  /*MEDIA QUERIES HOME PAGE*/
+  .Detailsmodal-content {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .descriptionDetailsContainer {
+    flex-direction: column;
+  }
+
+  .textDetail {
+    width: 100%;
+    margin: 5px;
+  }
+
+  .buyAndRegisterContainer {
+    display: block;
+    text-align: center;
+  }
+
+  .commentSection {
+    width: 100%;
+  }
+
+  /*MEDIA QUERIES PAGINA CONTATTI*/
+  .formContainer {
+    position: fixed;
+    /* Posizione fissa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Centratura esatta */
+    max-width: 600px;
+    width: 100%;
+    padding: 60px;
+    box-sizing: border-box;
+  }
+
+  /**/
+
+}
+
+/**/
+
+
+@media (max-width: 600px) {
+
+  .menuMobileContainer {
+    width: 100%;
+  }
+
+}
+
+/**/
